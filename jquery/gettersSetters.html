@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Getters and setters</title>
+	</head>
+	<body>
+		<h1 class="greeting">Hello</h1>
+		<p id="paragraph">My name is Ayan</p>
+		<strong>I am mexican</strong>
+		<script src="jquery-3.2.1.min.js"></script>
+		<script>
+			$(function(){
+				alert($('.greeting').html());	
+				alert($('h1').attr('class'));	
+				$('h1').attr('id', 'greeting');	
+			});
+		</script>
+	</body>
+</html>

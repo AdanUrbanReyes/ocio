@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Loops</title>
+	</head>
+	<body>
+		<ul id='numbers'></ul>
+		<ul id='people'></ul>
+		<script src="jquery-3.2.1.min.js"></script>
+		<script>
+			$(function(){
+				var n = [1,2,3,4];
+				var p = {'one' : 'Ayan', 'two' : 'Alizita'};
+				$.each(n, function(i, v){
+					$('#numbers').append($('<li></li>').text('n[' + i + '] = ' + v));
+				});
+				$.each(p, function(i, v){
+					$('#people').append($('<li></li>').text('p[' + i + '] = ' + v));
+				});
+			});
+		</script>
+	</body>
+</html>

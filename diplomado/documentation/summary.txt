@@ -1,0 +1,7 @@
+A computer program is a set of instructions that run on a computer or other digital device.
+A compiler is an application that converts a program that you write into a CPU-specific code called machine code.
+JDK Java Developer Kit
+JVM Java Virtual Machine
+JRE Java Runtime Environment
+JSE Java Standard Edition
+JAR Java Archive files

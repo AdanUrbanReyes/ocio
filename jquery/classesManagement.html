@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Classes management</title>
+	</head>
+	<body>
+		<h1>Hello !</h1>
+		<h1>Welcome !</h1>
+		<p>I am Ayan :D</p>
+		<script src="jquery-3.2.1.min.js"></script>
+		<script>
+			$(function(){
+				if($('h1').hasClass('gretting')){
+					alert('h1 has class gretting');
+					$('h1').removeClass('gretting');
+				}else{
+					alert('h1 has not class gretting');
+					$('h1').addClass('gretting');
+				}
+				$('.gretting').css({'background-color' : 'red', 'color' : 'blue'});
+			});
+		</script>
+	</body>
+</html>

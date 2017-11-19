@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>JQuery Selectors</title>
+	</head>
+	<body>
+		<h1 class="greeting">Hello!</h1>
+		<p id="paragraph">I am Ayan from Mexico</p>
+		<div> :D </div>
+		<div> :( </div>
+		<script src="jquery-3.2.1.min.js"></script>
+		<script>
+			$(document).ready(function(){
+				$('#paragraph').text('I love you Alizita');
+				$('.greeting').css({'color' : 'red'});
+				$('div').text('this is my hert bum for you :*');
+			});
+		</script>
+	</body>
+</html>

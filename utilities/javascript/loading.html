@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Loading</title>
+		<style>
+			div#loading_screen{
+				background : #000;
+				opacity : 1;
+				position : fixed;
+				z-index : 10;
+				top : 0px;
+				width : 100%;
+				height : 1600px;
+			}
+
+			p#loading_text{
+				font-size : 36px;
+				color : #FFF;
+				text-align : center;
+				text-transform : capitalize;
+			}
+			
+			div.loading_spin{
+				border : 16px solid #F3F3F3;
+				border-radius : 50%;
+				border-top : 16px solid #3498DB;
+				width:120px;
+				height:120px;
+				animation: spin 2s linear infinite;
+				color : #FFF;
+				margin : 0 auto;
+				margin-top : 300px;
+			}
+
+			@keyframes spin{
+				0% { transform : rotate(0deg); }
+				100% { transform : rotate(360deg); }
+			}
+
+		</style>
+	</head>
+	<body>
+		<div id="loading_screen">
+			<div class="loading_spin"></div>
+			<p id="loading_text">Imprimiendo</p>
+		</div>
+		<script>
+			window.addEventListener('load', function(){
+				setTimeout(function(){
+					document.body.removeChild(document.getElementById('loading_screen'));
+				}, 7000);
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Show hide</title>
+		<style rel="stylesheet" type="text/css">
+			.hide{
+				display : none;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Hello</h1>
+		<p class="gretting hide" >I am Ayan :D</p>
+		<p class="gretting hide" >from Mexico</p>
+		<script src="jquery-3.2.1.min.js"></script>
+		<script>
+			$(function(){
+				$('h1').css({'background-color' : 'red', 'color' : 'blue', 'text-align': 'center', 'font-size' : '45px'});
+				if($('p').hasClass('gretting')){
+					$('h1').hide(3000);
+					$('p').show(3000);
+				}else{
+					$('p').addClass('gretting');
+				}
+				$('.gretting').css({'background-color' : 'red', 'color' : 'blue', 'text-align': 'center', 'font-size' : '45px'});
+			});
+		</script>
+	</body>
+</html>

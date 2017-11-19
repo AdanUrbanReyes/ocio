@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Ajax</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+	</head>
+	<body ng-app="ajax_application"> 
+		<div class="container" ng-controller="ajax_controller">
+			<div class="row">
+				<div class="col-md-2">
+					<label for="title">Title:</label>
+				</div>
+				<div class="col-md-8">
+					<input class="text-capitalize" id ="title" type="text" name="title" ng-model="post.title" required/>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-2">
+					<label for="body">Body:</label>
+				</div>
+				<div class="col-md-8">
+					<textarea id="body" name="body" ng-model="post.body" required></textarea>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4">
+					<button class="btn btn-primary btn-block" ng-click="addPost()">Add</button>
+				</div>
+			</div>
+			<div style="margin: 30px; background:#DDDDDD;" class="row">
+				<div class="col-md-12">
+					<h3>Post:</h3>
+					<ul class="list-group">
+						<li class="list-group-item" ng-repeat="post in posts">
+							<h2>{{post.title}}</h2>
+							<p>{{post.body}}</p>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.min.js"></script>
+		<script type="text/javascript">
+			var app = angular.module('ajax_application', []);
+			app.controller('ajax_controller', ['$scope','$http', function(s, h){
+				s.post={};
+				s.posts=[];
+				h.get('http://jsonplaceholder.typicode.com/posts').
+					then(function(response){
+						console.log(response);
+						s.posts = response.data;
+					}, function(err){
+						console.log('Error al consultar http://jsonplaceholder.typicode.com/posts ' + err);
+					});
+				s.addPost = function(){
+					h.post('http://jsonplaceholder.typicode.com/posts',{
+						title: s.post.title,
+						body: s.post.body,
+						userId : 1
+						}).
+						then(function(response, status, headers, config){
+							s.posts.push(s.post);
+							s.post={};
+						}, function(err){
+							console.log('Error al tratar de insertar un post ' + err);
+						});
+				};
+			}]);
+		</script>
+	</body>
+</html>

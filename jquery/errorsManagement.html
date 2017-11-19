@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Error management</title>
+	</head>
+	<body>
+		<script src="jquery-3.2.1.min.js"></script>	
+		<script>
+			$.when($.ready, $.getScript("optional.js")).then(function(){
+				alert('All fine :D');
+			}).catch(function(){
+				alert('All bad :D');
+			});
+		</script>
+	</body>
+</html>
